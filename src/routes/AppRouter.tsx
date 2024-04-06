@@ -8,11 +8,13 @@ import AboutUs from '@pages/AboutUs';
 import Products from '@pages/Products';
 import Login from '@pages/Login';
 import Register from '@pages/Register';
+import Error from '@pages/Error';
 
 const router = createBrowserRouter([
   {
     path: '/',
     element: <MainLayout />,
+    errorElement: <Error />,
     children: [
       {
         index: true,
