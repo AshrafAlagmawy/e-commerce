@@ -29,7 +29,7 @@ const router = createBrowserRouter([
         element: <AboutUs />,
       },
       {
-        path: 'products/:prefix',
+        path: 'categories/products/:prefix',
         element: <Products />,
         loader: ({ params }) => {
           if (
