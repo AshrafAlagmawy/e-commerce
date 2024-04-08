@@ -14,7 +14,7 @@ import { Loading } from '@components/feedback';
 const Products = () => {
   const params = useParams();
   const dispatch = useAppDispatch();
-  const { loading, error, records } = useAppSelector((state) => state.Products);
+  const { loading, error, records } = useAppSelector((state) => state.products);
 
   useEffect(() => {
     dispatch(actGetProductsByCatPrefix(params.prefix as string));
