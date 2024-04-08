@@ -1,11 +1,11 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 // Layouts
-import { MainLayout } from '@layouts/index';
+import MainLayout from '@layouts/MainLayout/MainLayout';
 // Pages
 import Home from '@pages/Home';
 import Categories from '@pages/Categories';
-import AboutUs from '@pages/AboutUs';
 import Products from '@pages/Products';
+import AboutUs from '@pages/AboutUs';
 import Login from '@pages/Login';
 import Register from '@pages/Register';
 import Error from '@pages/Error';
@@ -25,10 +25,6 @@ const router = createBrowserRouter([
         element: <Categories />,
       },
       {
-        path: 'about-us',
-        element: <AboutUs />,
-      },
-      {
         path: 'categories/products/:prefix',
         element: <Products />,
         loader: ({ params }) => {
@@ -43,6 +39,10 @@ const router = createBrowserRouter([
           }
           return true;
         },
+      },
+      {
+        path: 'about-us',
+        element: <AboutUs />,
       },
       {
         path: 'login',
