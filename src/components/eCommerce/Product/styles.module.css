@@ -5,10 +5,14 @@
   justify-content: space-between;
 }
 
-.productImg img {
-  width: 100%;
+.productImg {
   height: 180px;
   background-color: #f2f2f2;
+  display: block;
+}
+
+.productImg img {
+  height: 100%;
   display: block;
 }
 
@@ -20,5 +24,5 @@
 }
 
 .product h3 {
-  font-size: 13px;
+  font-size: 14px;
 }
