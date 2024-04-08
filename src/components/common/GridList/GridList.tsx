@@ -2,7 +2,7 @@ import { Row, Col } from 'react-bootstrap';
 
 type GridListProps<T> = {
   records: T[];
-  renderItem: (record: T) => React.JSX.Element;
+  renderItem: (record: T) => React.ReactNode;
 };
 
 type HasId = { id?: number };
