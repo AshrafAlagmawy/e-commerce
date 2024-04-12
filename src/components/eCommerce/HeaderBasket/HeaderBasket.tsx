@@ -15,6 +15,8 @@ const HeaderBasket = () => {
   }`;
 
   useEffect(() => {
+    if (!totalQuantity) return;
+
     setIsAnimate(true);
 
     const debounce = setTimeout(() => {
