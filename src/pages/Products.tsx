@@ -7,7 +7,7 @@ import {
 } from '@store/products/productsSlice';
 import { Container } from 'react-bootstrap';
 
-import { GridList } from '@components/common';
+import { GridList, Heading } from '@components/common';
 import { Product } from '@components/eCommerce';
 import { Loading } from '@components/feedback';
 
@@ -32,6 +32,10 @@ const Products = () => {
 
   return (
     <Container>
+      <Heading>
+        <span style={{ textTransform: 'capitalize' }}>{params.prefix}</span>{' '}
+        Products
+      </Heading>
       <Loading status={loading} error={error}>
         <GridList
           records={productsFullInfo}
