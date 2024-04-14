@@ -1,10 +1,13 @@
-import { useEffect } from 'react';
+import { useCallback, useEffect } from 'react';
 import { useAppDispatch, useAppSelector } from '@store/hooks';
-import { actGetProductsByItems } from '@store/cart/cartSlice';
+import {
+  actGetProductsByItems,
+  shoppingCartItemChangeQuantity,
+  shoppingCartRemoveItem,
+} from '@store/cart/cartSlice';
 import { Heading } from '@components/common';
 import { Loading } from '@components/feedback';
 import { ShoppingCartItemList, CartSubTotalPrice } from '@components/eCommerce';
-import { shoppingCartItemChangeQuantity } from '@store/cart/cartSlice';
 
 const ShoppingCart = () => {
   const dispatch = useAppDispatch();
@@ -22,9 +25,19 @@ const ShoppingCart = () => {
     quantity: items[el.id],
   }));
 
-  const changeQuantityHandler = (id: number, quantity: number) => {
-    dispatch(shoppingCartItemChangeQuantity({ id, quantity }));
-  };
+  const changeQuantityHandler = useCallback(
+    (id: number, quantity: number) => {
+      dispatch(shoppingCartItemChangeQuantity({ id, quantity }));
+    },
+    [dispatch]
+  );
+
+  const removeItemHandler = useCallback(
+    (id: number) => {
+      dispatch(shoppingCartRemoveItem(id));
+    },
+    [dispatch]
+  );
 
   return (
     <>
@@ -34,6 +47,7 @@ const ShoppingCart = () => {
           <ShoppingCartItemList
             products={products}
             changeQuantityHandler={changeQuantityHandler}
+            removeItemHandler={removeItemHandler}
           />
           <CartSubTotalPrice />
         </>
