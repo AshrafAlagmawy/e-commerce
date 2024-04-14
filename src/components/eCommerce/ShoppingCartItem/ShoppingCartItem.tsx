@@ -7,7 +7,25 @@ const { cartItem, product, productImg, productInfo, cartItemSelection } =
 
 type ShoppingCartItemProps = TProduct;
 
-const ShoppingCartItem = ({ title, price, img }: ShoppingCartItemProps) => {
+const ShoppingCartItem = ({
+  title,
+  price,
+  img,
+  max,
+  quantity,
+}: ShoppingCartItemProps) => {
+  const renderOptions = Array(max)
+    .fill(0)
+    .map((_, idx) => {
+      const quantity = ++idx;
+
+      return (
+        <option value={quantity} key={quantity}>
+          {quantity}
+        </option>
+      );
+    });
+
   return (
     <div className={cartItem}>
       <div className={product}>
@@ -30,13 +48,7 @@ const ShoppingCartItem = ({ title, price, img }: ShoppingCartItemProps) => {
 
       <div className={cartItemSelection}>
         <span className="d-block mb-1">Quantity</span>
-        <Form.Select value={1} onChange={() => {}}>
-          {[...Array(5)].map((_, i) => (
-            <option key={i} value={i + 1}>
-              {i + 1}
-            </option>
-          ))}
-        </Form.Select>
+        <Form.Select value={quantity}>{renderOptions}</Form.Select>
       </div>
     </div>
   );
