@@ -33,6 +33,9 @@ const cartSlice = createSlice({
         state.items[id] = 1;
       }
     },
+    shoppingCartItemChangeQuantity: (state, action) => {
+      state.items[action.payload.id] = action.payload.quantity;
+    },
   },
 
   extraReducers: (builder) => {
@@ -58,5 +61,5 @@ export {
   itemQuantityAvailabilityCheckingSelector,
   actGetProductsByItems,
 };
-export const { addToCart } = cartSlice.actions;
+export const { addToCart, shoppingCartItemChangeQuantity } = cartSlice.actions;
 export default cartSlice.reducer;
