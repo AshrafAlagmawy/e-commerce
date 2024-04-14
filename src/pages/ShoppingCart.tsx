@@ -44,12 +44,18 @@ const ShoppingCart = () => {
       <Heading>Your Cart</Heading>
       <Loading status={loading} error={error}>
         <>
-          <ShoppingCartItemList
-            products={products}
-            changeQuantityHandler={changeQuantityHandler}
-            removeItemHandler={removeItemHandler}
-          />
-          <CartSubTotalPrice />
+          {products.length !== 0 ? (
+            <>
+              <ShoppingCartItemList
+                products={products}
+                changeQuantityHandler={changeQuantityHandler}
+                removeItemHandler={removeItemHandler}
+              />
+              <CartSubTotalPrice products={products} />
+            </>
+          ) : (
+            <p className="text-center">There are no items in your cart</p>
+          )}
         </>
       </Loading>
     </>
