@@ -73,4 +73,5 @@ export const {
   shoppingCartItemChangeQuantity,
   shoppingCartRemoveItem,
 } = cartSlice.actions;
+
 export default cartSlice.reducer;
