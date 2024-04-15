@@ -54,6 +54,7 @@ import storage from 'redux-persist/lib/storage';
 import categories from './categories/categoriesSlice';
 import products from './products/productsSlice';
 import cart from './cart/cartSlice';
+import wishlist from './wishlist/wishlistSlice';
 
 const rootPersistConfig = {
   key: 'root',
@@ -65,6 +66,7 @@ const rootReducer = combineReducers({
   cart,
   categories,
   products,
+  wishlist,
 });
 
 const persistedReducer = persistReducer(rootPersistConfig, rootReducer);
