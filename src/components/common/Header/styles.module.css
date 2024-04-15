@@ -22,3 +22,8 @@
   display: block;
   margin-right: 5px;
 }
+
+.leftBar {
+  display: flex;
+  flex-direction: row;
+}

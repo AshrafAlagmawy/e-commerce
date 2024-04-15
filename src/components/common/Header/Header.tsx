@@ -1,10 +1,10 @@
 import { useNavigate } from 'react-router-dom';
 import { NavLink } from 'react-router-dom';
-import { HeaderBasket } from '../../eCommerce';
+import { HeaderBasket, HeaderWishlist } from '../../eCommerce';
 import { Badge, Navbar, Container, Nav } from 'react-bootstrap';
 
 import styles from './styles.module.css';
-const { headerContainer, headerLogo } = styles;
+const { headerContainer, headerLogo, leftBar } = styles;
 
 const Header = () => {
   const navigate = useNavigate();
@@ -17,8 +17,12 @@ const Header = () => {
           <span>Our</span> <Badge bg="info">Ecommerce</Badge>
         </h1>
 
-        {/* Basket */}
-        <HeaderBasket />
+        <div className={leftBar}>
+          {/* Wishlist */}
+          <HeaderWishlist />
+          {/* Basket */}
+          <HeaderBasket />
+        </div>
       </div>
       {/* Navigation */}
       <Navbar
