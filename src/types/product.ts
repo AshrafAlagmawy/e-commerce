@@ -6,4 +6,5 @@ export type TProduct = {
   cat_prefix: string;
   quantity?: number;
   max: number;
+  isLiked?: boolean;
 };
