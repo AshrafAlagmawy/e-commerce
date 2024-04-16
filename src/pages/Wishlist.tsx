@@ -1,10 +1,43 @@
-import { Heading } from '@components/common';
+import { useEffect } from 'react';
+import { useAppDispatch, useAppSelector } from '@store/hooks';
+import {
+  actGetWishlistItems,
+  productsFullInfoCleanUp,
+} from '@store/wishlist/wishlistSlice';
+import { GridList, Heading } from '@components/common';
+import { Product } from '@components/eCommerce';
+import { Loading } from '@components/feedback';
+import { TProduct } from '@customTypes/product';
 
 const Wishlist = () => {
+  const dispatch = useAppDispatch();
+  const { loading, error, productsFullInfo } = useAppSelector(
+    (state) => state.wishlist
+  );
+  const cartItems = useAppSelector((state) => state.cart.items);
+
+  useEffect(() => {
+    dispatch(actGetWishlistItems());
+    return () => {
+      dispatch(productsFullInfoCleanUp());
+    };
+  }, [dispatch]);
+
+  const records = productsFullInfo.map((el) => ({
+    ...el,
+    quantity: cartItems[el.id],
+    isLiked: true,
+  }));
+
   return (
     <>
       <Heading>Your Wishlist</Heading>
-      <p className="text-center">There are no items in your cart</p>
+      <Loading status={loading} error={error}>
+        <GridList<TProduct>
+          records={records}
+          renderItem={(record) => <Product {...record} />}
+        />
+      </Loading>
     </>
   );
 };

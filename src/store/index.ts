@@ -1,5 +1,5 @@
 // New Code With Features But Not Working Well It's has an error when add to cart
-// import { configureStore, combineReducers } from '@reduxjs/toolkit';
+// import { configureStore, combineReducers } from "@reduxjs/toolkit";
 // import {
 //   persistStore,
 //   persistReducer,
@@ -9,22 +9,30 @@
 //   PERSIST,
 //   PURGE,
 //   REGISTER,
-// } from 'redux-persist';
-// import storage from 'redux-persist/lib/storage';
-// import categories from './categories/categoriesSlice';
-// import products from './products/productsSlice';
-// import cart from './cart/cartSlice';
+// } from "redux-persist";
+// import storage from "redux-persist/lib/storage";
+// import categories from "./categories/categoriesSlice";
+// import products from "./products/productsSlice";
+// import cart from "./cart/cartSlice";
+// import wishlist from "./wishlist/wishlistSlice";
 
 // const cartPersistConfig = {
-//   key: 'cart',
+//   key: "cart",
 //   storage,
-//   whitelist: ['items'],
+//   whitelist: ["items"],
+// };
+
+// const wishlistPersistConfig = {
+//   key: "wishlist",
+//   storage,
+//   whitelist: ["itemsId"],
 // };
 
 // const rootReducer = combineReducers({
 //   categories,
 //   products,
 //   cart: persistReducer(cartPersistConfig, cart),
+//   wishlist: persistReducer(wishlistPersistConfig, wishlist),
 // });
 
 // const store = configureStore({
@@ -59,7 +67,7 @@ import wishlist from './wishlist/wishlistSlice';
 const rootPersistConfig = {
   key: 'root',
   storage,
-  whiteList: ['cart'],
+  whiteList: ['cart', 'itemsId'],
 };
 
 const rootReducer = combineReducers({
