@@ -1,10 +1,10 @@
 import { useNavigate } from 'react-router-dom';
 import { NavLink } from 'react-router-dom';
-import { HeaderBasket, HeaderWishlist } from '../../eCommerce';
+import HeaderLeftBar from './HeaderLeftBar/HeaderLeftBar';
 import { Badge, Navbar, Container, Nav } from 'react-bootstrap';
-
+// Styles
 import styles from './styles.module.css';
-const { headerContainer, headerLogo, leftBar } = styles;
+const { headerContainer, headerLogo } = styles;
 
 const Header = () => {
   const navigate = useNavigate();
@@ -16,14 +16,9 @@ const Header = () => {
         <h1 className={headerLogo} onClick={() => navigate('/')}>
           <span>Our</span> <Badge bg="info">Ecommerce</Badge>
         </h1>
-
-        <div className={leftBar}>
-          {/* Wishlist */}
-          <HeaderWishlist />
-          {/* Basket */}
-          <HeaderBasket />
-        </div>
+        <HeaderLeftBar />
       </div>
+
       {/* Navigation */}
       <Navbar
         expand="lg"

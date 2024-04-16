@@ -33,10 +33,7 @@ const Products = () => {
 
   return (
     <Container>
-      <Heading>
-        <span style={{ textTransform: 'capitalize' }}>{params.prefix}</span>{' '}
-        Products
-      </Heading>
+      <Heading title={`${params.prefix} Products`} />
       <Loading status={loading} error={error}>
         <GridList
           records={productsFullInfo}

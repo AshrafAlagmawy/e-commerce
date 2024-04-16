@@ -6,7 +6,6 @@
 }
 
 .headerLogo {
-  cursor: default;
   color: inherit;
   text-decoration: inherit;
   font-size: 2.3rem;
@@ -21,9 +20,4 @@
 .headerLogo h1 span {
   display: block;
   margin-right: 5px;
-}
-
-.leftBar {
-  display: flex;
-  flex-direction: row;
 }
