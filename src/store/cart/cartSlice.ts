@@ -42,7 +42,7 @@ const cartSlice = createSlice({
         (el) => el.id !== action.payload
       );
     },
-    productsFullInfoCleanUp: (state) => {
+    shoppingCartProductsFullInfoCleanUp: (state) => {
       state.productsFullInfo = [];
     },
   },
@@ -77,6 +77,6 @@ export const {
   shoppingCartRemoveItem,
 } = cartSlice.actions;
 
-export const { productsFullInfoCleanUp } = cartSlice.actions;
+export const { shoppingCartProductsFullInfoCleanUp } = cartSlice.actions;
 
 export default cartSlice.reducer;

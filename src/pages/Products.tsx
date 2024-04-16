@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from '@store/hooks';
 import {
   actGetProductsByCatPrefix,
-  productsCleanUp,
+  productsRecordsCleanUp,
 } from '@store/products/productsSlice';
 import { Container } from 'react-bootstrap';
 
@@ -27,7 +27,7 @@ const Products = () => {
   useEffect(() => {
     dispatch(actGetProductsByCatPrefix(params.prefix as string));
     return () => {
-      dispatch(productsCleanUp());
+      dispatch(productsRecordsCleanUp());
     };
   }, [dispatch, params]);
 

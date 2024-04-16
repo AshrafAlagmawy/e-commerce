@@ -4,11 +4,11 @@ import {
   actGetProductsByItems,
   shoppingCartItemChangeQuantity,
   shoppingCartRemoveItem,
+  shoppingCartProductsFullInfoCleanUp,
 } from '@store/cart/cartSlice';
 import { Heading } from '@components/common';
 import { Loading } from '@components/feedback';
 import { ShoppingCartItemList, CartSubTotalPrice } from '@components/eCommerce';
-import { productsFullInfoCleanUp } from '@store/cart/cartSlice';
 
 const ShoppingCart = () => {
   const dispatch = useAppDispatch();
@@ -20,7 +20,7 @@ const ShoppingCart = () => {
   useEffect(() => {
     dispatch(actGetProductsByItems());
     return () => {
-      dispatch(productsFullInfoCleanUp());
+      dispatch(shoppingCartProductsFullInfoCleanUp());
     };
   }, [dispatch]);
 
