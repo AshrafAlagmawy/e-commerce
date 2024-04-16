@@ -35,6 +35,9 @@ const wishlistSlice = createSlice({
         state.itemsId.push(action.payload.id);
       } else {
         state.itemsId = state.itemsId.filter((id) => id !== action.payload.id);
+        state.productsFullInfo = state.productsFullInfo.filter(
+          (el) => el.id !== action.payload.id
+        );
       }
     });
     builder.addCase(actLikeToggle.rejected, (state, action) => {
