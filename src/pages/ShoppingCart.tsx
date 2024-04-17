@@ -1,47 +1,11 @@
-import { useCallback, useEffect } from 'react';
-import { useAppDispatch, useAppSelector } from '@store/hooks';
-import {
-  actGetProductsByItems,
-  shoppingCartItemChangeQuantity,
-  shoppingCartRemoveItem,
-  shoppingCartProductsFullInfoCleanUp,
-} from '@store/cart/cartSlice';
+import useShoppingCart from '@hooks/useShoppingCart';
 import { Heading } from '@components/common';
 import { Loading } from '@components/feedback';
 import { ShoppingCartItemList, CartSubTotalPrice } from '@components/eCommerce';
 
 const ShoppingCart = () => {
-  const dispatch = useAppDispatch();
-
-  const { items, productsFullInfo, loading, error } = useAppSelector(
-    (state) => state.cart
-  );
-
-  useEffect(() => {
-    dispatch(actGetProductsByItems());
-    return () => {
-      dispatch(shoppingCartProductsFullInfoCleanUp());
-    };
-  }, [dispatch]);
-
-  const products = productsFullInfo.map((el) => ({
-    ...el,
-    quantity: items[el.id],
-  }));
-
-  const changeQuantityHandler = useCallback(
-    (id: number, quantity: number) => {
-      dispatch(shoppingCartItemChangeQuantity({ id, quantity }));
-    },
-    [dispatch]
-  );
-
-  const removeItemHandler = useCallback(
-    (id: number) => {
-      dispatch(shoppingCartRemoveItem(id));
-    },
-    [dispatch]
-  );
+  const { loading, error, products, changeQuantityHandler, removeItemHandler } =
+    useShoppingCart();
 
   return (
     <>
