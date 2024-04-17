@@ -14,7 +14,7 @@ const Header = () => {
       <div className={headerContainer}>
         {/* Logo */}
         <h1 className={headerLogo} onClick={() => navigate('/')}>
-          <span>Our</span> <Badge bg="info">Ecommerce</Badge>
+          <span>Our</span> <Badge bg="info">eCom</Badge>
         </h1>
         <HeaderLeftBar />
       </div>
