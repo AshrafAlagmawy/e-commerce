@@ -28,8 +28,8 @@
       "@customTypes/*": ["src/types/*"],
       "@styles/*": ["src/styles/*"],
       "@layouts/*": ["src/layouts/*"],
-      "@util/*": ["src/util/*"],
-      "@util": ["src/util/index"],
+      "@utils/*": ["src/utils/*"],
+      "@utils": ["src/utils/index"],
       "@services/*": ["src/services/*"]
     },
 

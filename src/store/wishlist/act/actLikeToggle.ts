@@ -1,5 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { axiosErrorHandler } from '@util';
+import { axiosErrorHandler } from 'src/utils';
 import axios from 'axios';
 
 const actLikeToggle = createAsyncThunk(
