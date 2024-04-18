@@ -3,7 +3,7 @@ import { useAppDispatch } from '@store/hooks';
 import { actLikeToggle } from '@store/wishlist/wishlistSlice';
 import { addToCart } from '@store/cart/cartSlice';
 import { Button, Spinner } from 'react-bootstrap';
-import { TProduct } from '@customTypes/product';
+import { TProduct } from '@types';
 // Icons
 import Like from '@assets/svg/like.svg?react';
 import LikeFill from '@assets/svg/like-fill.svg?react';

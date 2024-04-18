@@ -17,7 +17,7 @@ export default defineConfig({
       '@utils': path.resolve(__dirname, './src/utils'),
       '@services': path.resolve(__dirname, './src/services'),
       '@styles': path.resolve(__dirname, './src/styles'),
-      '@customTypes': path.resolve(__dirname, './src/customTypes'),
+      '@types': path.resolve(__dirname, './src/types'),
     },
   },
   plugins: [react(), svgr()],

@@ -4,8 +4,7 @@ import {
   itemQuantityAvailabilityCheckingSelector,
 } from './selectors';
 import actGetProductsByItems from './act/actGetProductsByItems';
-import { TProduct } from '@customTypes/product';
-import { TLoading } from '@customTypes/shared';
+import { TProduct, TLoading } from '@types';
 
 interface ICartState {
   items: { [key: string]: number }; // 1:1

@@ -1,5 +1,5 @@
 import ShoppingCartItem from '../ShoppingCartItem/ShoppingCartItem';
-import { TProduct } from '@customTypes/product';
+import { TProduct } from '@types';
 
 type ShoppingCartItemListProps = {
   products: TProduct[];
