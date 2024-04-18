@@ -13,8 +13,9 @@ const useWishlist = () => {
   const cartItems = useAppSelector((state) => state.cart.items);
 
   useEffect(() => {
-    dispatch(actGetWishlistItems());
+    const promise = dispatch(actGetWishlistItems());
     return () => {
+      promise.abort();
       dispatch(wishlistProductsFullInfoCleanUp());
     };
   }, [dispatch]);

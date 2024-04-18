@@ -15,8 +15,9 @@ const useShoppingCart = () => {
   );
 
   useEffect(() => {
-    dispatch(actGetProductsByItems());
+    const promise = dispatch(actGetProductsByItems());
     return () => {
+      promise.abort();
       dispatch(shoppingCartProductsFullInfoCleanUp());
     };
   }, [dispatch]);

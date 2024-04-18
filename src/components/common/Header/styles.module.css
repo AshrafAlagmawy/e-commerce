@@ -10,6 +10,7 @@
   text-decoration: inherit;
   font-size: 2.3rem;
   margin: 0;
+  cursor: pointer;
 }
 
 .headerLogo h1 {
