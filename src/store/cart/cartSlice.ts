@@ -4,7 +4,7 @@ import {
   itemQuantityAvailabilityCheckingSelector,
 } from './selectors';
 import actGetProductsByItems from './act/actGetProductsByItems';
-import { TProduct, TLoading } from '@types';
+import { TProduct, TLoading, isString } from '@types';
 
 interface ICartState {
   items: { [key: string]: number }; // 1:1
@@ -57,7 +57,7 @@ const cartSlice = createSlice({
     });
     builder.addCase(actGetProductsByItems.rejected, (state, action) => {
       state.loading = 'failed';
-      if (action.payload && typeof action.payload === 'string') {
+      if (isString(action.payload)) {
         state.error = action.payload;
       }
     });
