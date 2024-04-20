@@ -10,7 +10,7 @@ const ShoppingCart = () => {
   return (
     <>
       <Heading title="Your Cart" />
-      <Loading status={loading} error={error}>
+      <Loading status={loading} error={error} type="cart">
         <>
           {products.length !== 0 ? (
             <>

@@ -10,7 +10,7 @@ const Products = () => {
   return (
     <Container>
       <Heading title={`${productPrefix} Products`} />
-      <Loading status={loading} error={error}>
+      <Loading status={loading} error={error} type="product">
         <GridList
           records={productsFullInfo}
           renderItem={(record) => <Product {...record} />}
