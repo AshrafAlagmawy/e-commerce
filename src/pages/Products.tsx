@@ -12,6 +12,7 @@ const Products = () => {
       <Heading title={`${productPrefix} Products`} />
       <Loading status={loading} error={error} type="product">
         <GridList
+          emptyMessage="There Are No Products Available Now."
           records={productsFullInfo}
           renderItem={(record) => <Product {...record} />}
         />

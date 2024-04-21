@@ -1,6 +1,6 @@
 import useShoppingCart from '@hooks/useShoppingCart';
 import { Heading } from '@components/common';
-import { Loading } from '@components/feedback';
+import { Loading, LottieHandler } from '@components/feedback';
 import { ShoppingCartItemList, CartSubTotalPrice } from '@components/eCommerce';
 
 const ShoppingCart = () => {
@@ -22,7 +22,10 @@ const ShoppingCart = () => {
               <CartSubTotalPrice products={products} />
             </>
           ) : (
-            <p className="text-center">There are no items in your cart</p>
+            <LottieHandler
+              type="empty"
+              message="There Are No Products In Your Cart"
+            />
           )}
         </>
       </Loading>

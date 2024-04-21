@@ -1,6 +1,7 @@
 import CategorySkeleton from '../skeletons/CategorySkeleton/CategorySkeleton';
 import ProductSkeleton from '../skeletons/ProductSkeleton/ProductSkeleton';
 import CartSkeleton from '../skeletons/CartSkeleton/CartSkeleton';
+import LottieHandler from '../LottieHandler/LottieHandler';
 import { TLoading } from '@types';
 
 const skeletonsTypes = {
@@ -29,7 +30,7 @@ const Loading = ({
   }
 
   if (status === 'failed') {
-    return <p>{error}</p>;
+    return <p>{<LottieHandler type="error" message={error as string} />}</p>;
   }
 
   return <>{children}</>;
