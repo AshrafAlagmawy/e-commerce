@@ -15,6 +15,7 @@
 // import products from "./products/productsSlice";
 // import cart from "./cart/cartSlice";
 // import wishlist from "./wishlist/wishlistSlice";
+// import auth from './auth/authSlice';
 
 // const cartPersistConfig = {
 //   key: "cart",
@@ -29,6 +30,7 @@
 // };
 
 // const rootReducer = combineReducers({
+// auth,
 //   categories,
 //   products,
 //   cart: persistReducer(cartPersistConfig, cart),
@@ -63,6 +65,7 @@ import categories from './categories/categoriesSlice';
 import products from './products/productsSlice';
 import cart from './cart/cartSlice';
 import wishlist from './wishlist/wishlistSlice';
+import auth from './auth/authSlice';
 
 const rootPersistConfig = {
   key: 'root',
@@ -71,6 +74,7 @@ const rootPersistConfig = {
 };
 
 const rootReducer = combineReducers({
+  auth,
   cart,
   categories,
   products,
