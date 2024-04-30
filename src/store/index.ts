@@ -1,5 +1,5 @@
 // New Code With Features But Not Working Well It's has an error when add to cart
-// import { configureStore, combineReducers } from "@reduxjs/toolkit";
+// import { configureStore, combineReducers } from '@reduxjs/toolkit';
 // import {
 //   persistStore,
 //   persistReducer,
@@ -9,36 +9,44 @@
 //   PERSIST,
 //   PURGE,
 //   REGISTER,
-// } from "redux-persist";
-// import storage from "redux-persist/lib/storage";
-// import categories from "./categories/categoriesSlice";
-// import products from "./products/productsSlice";
-// import cart from "./cart/cartSlice";
-// import wishlist from "./wishlist/wishlistSlice";
+// } from 'redux-persist';
+// import storage from 'redux-persist/lib/storage';
+// import categories from './categories/categoriesSlice';
+// import products from './products/productsSlice';
+// import cart from './cart/cartSlice';
+// import wishlist from './wishlist/wishlistSlice';
 // import auth from './auth/authSlice';
 
-// const cartPersistConfig = {
-//   key: "cart",
+// const rootPersistConfig = {
+//   key: 'root',
 //   storage,
-//   whitelist: ["items"],
+//   whitelist: ['cart', 'auth'],
 // };
 
-// const wishlistPersistConfig = {
-//   key: "wishlist",
+// const authPersistConfig = {
+//   key: 'auth',
 //   storage,
-//   whitelist: ["itemsId"],
+//   whiteList: ['user', 'accessToken'],
+// };
+
+// const cartPersistConfig = {
+//   key: 'cart',
+//   storage,
+//   whitelist: ['items'],
 // };
 
 // const rootReducer = combineReducers({
-// auth,
+//   auth: persistReducer(authPersistConfig, auth),
 //   categories,
 //   products,
 //   cart: persistReducer(cartPersistConfig, cart),
-//   wishlist: persistReducer(wishlistPersistConfig, wishlist),
+//   wishlist: wishlist,
 // });
 
+// const persistedReducer = persistReducer(rootPersistConfig, rootReducer);
+
 // const store = configureStore({
-//   reducer: rootReducer,
+//   reducer: persistedReducer,
 //   middleware: (getDefaultMiddleware) =>
 //     getDefaultMiddleware({
 //       serializableCheck: {
@@ -70,7 +78,13 @@ import auth from './auth/authSlice';
 const rootPersistConfig = {
   key: 'root',
   storage,
-  whiteList: ['cart', 'itemsId'],
+  whiteList: ['cart', 'itemsId', 'auth'],
+};
+
+const authPersistConfig = {
+  key: 'auth',
+  storage,
+  whiteList: ['user', 'accessToken'],
 };
 
 const rootReducer = combineReducers({
