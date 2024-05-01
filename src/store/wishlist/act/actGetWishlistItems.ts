@@ -34,7 +34,7 @@ const actGetWishlistItems = createAsyncThunk(
           `/products?${concatenatedItemsId}`
         );
 
-        return { data: response.data, dataType: 'ProductsFullInfo' };
+        return { data: response.data, dataType: 'productsFullInfo' };
       }
     } catch (error) {
       return rejectWithValue(axiosErrorHandler(error));

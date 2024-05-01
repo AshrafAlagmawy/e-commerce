@@ -54,7 +54,7 @@ const wishlistSlice = createSlice({
     });
     builder.addCase(actGetWishlistItems.fulfilled, (state, action) => {
       state.loading = 'succeeded';
-      if (action.payload.dataType === 'ProductFullInfo') {
+      if (action.payload.dataType === 'productsFullInfo') {
         state.productsFullInfo = action.payload.data as TProduct[];
       } else if (action.payload.dataType === 'productIds') {
         state.itemsId = action.payload.data as number[];
