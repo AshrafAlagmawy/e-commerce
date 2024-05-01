@@ -1,5 +1,7 @@
+import { useEffect } from 'react';
 import { useAppSelector, useAppDispatch } from '@store/hooks';
 import { authLogout } from '@store/auth/authSlice';
+import { actGetWishlistItems } from '@store/wishlist/wishlistSlice';
 import { useNavigate } from 'react-router-dom';
 import { NavLink } from 'react-router-dom';
 import HeaderLeftBar from './HeaderLeftBar/HeaderLeftBar';
@@ -11,6 +13,12 @@ const { headerContainer, headerLogo } = styles;
 const Header = () => {
   const dispatch = useAppDispatch();
   const { user, accessToken } = useAppSelector((state) => state.auth);
+
+  useEffect(() => {
+    if (accessToken) {
+      dispatch(actGetWishlistItems('productIds'));
+    }
+  }, [dispatch, accessToken]);
 
   const navigate = useNavigate();
 
