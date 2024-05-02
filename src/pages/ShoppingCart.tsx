@@ -11,6 +11,7 @@ const ShoppingCart = () => {
     changeQuantityHandler,
     removeItemHandler,
     userAccessToken,
+    placeOrderStatus,
   } = useShoppingCart();
 
   return (
@@ -30,10 +31,15 @@ const ShoppingCart = () => {
                 userAccessToken={userAccessToken}
               />
             </>
+          ) : placeOrderStatus === 'succeeded' ? (
+            <LottieHandler
+              type="success"
+              message="Your order has been placed successfully!"
+            />
           ) : (
             <LottieHandler
               type="empty"
-              message="There Are No Products In Your Cart"
+              message="There are no products in your cart"
             />
           )}
         </>
