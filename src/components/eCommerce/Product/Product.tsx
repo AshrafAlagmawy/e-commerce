@@ -4,12 +4,13 @@ import { actLikeToggle } from '@store/wishlist/wishlistSlice';
 import { addToCart } from '@store/cart/cartSlice';
 import { Button, Modal, Spinner } from 'react-bootstrap';
 import { TProduct } from '@types';
+import ProductInfo from '../ProductInfo/ProductInfo';
 // Icons
 import Like from '@assets/svg/like.svg?react';
 import LikeFill from '@assets/svg/like-fill.svg?react';
 // Styles
 import styles from './styles.module.css';
-const { product, productImg, maximumNotice, wishlistBtn } = styles;
+const { maximumNotice, wishlistBtn } = styles;
 
 const Product = memo(
   ({
@@ -71,7 +72,7 @@ const Product = memo(
           </Modal.Body>
         </Modal>
 
-        <div className={product}>
+        <ProductInfo title={title} price={price} img={img}>
           <div className={wishlistBtn} onClick={likeToggleHandler}>
             {isLoading ? (
               <Spinner animation="border" size="sm" variant="primary" />
@@ -81,11 +82,6 @@ const Product = memo(
               <Like />
             )}
           </div>
-          <div className={productImg}>
-            <img src={img} alt={title} />
-          </div>
-          <h2 title={title}>{title}</h2>
-          <h3>{Number(price).toFixed(2)} EGP</h3>
           <p className={maximumNotice}>
             {quantityReachToMax
               ? 'You reached to the max of this product'
@@ -93,7 +89,7 @@ const Product = memo(
           </p>
           <Button
             variant="info"
-            style={{ color: 'white' }}
+            style={{ color: 'white', width: '100%' }}
             onClick={addToCartHandler}
             disabled={isBtnDisabled || quantityReachToMax}
           >
@@ -105,7 +101,7 @@ const Product = memo(
               'Add to cart'
             )}
           </Button>
-        </div>
+        </ProductInfo>
       </>
     );
   }

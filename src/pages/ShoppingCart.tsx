@@ -4,8 +4,14 @@ import { Loading, LottieHandler } from '@components/feedback';
 import { ShoppingCartItemList, CartSubTotalPrice } from '@components/eCommerce';
 
 const ShoppingCart = () => {
-  const { loading, error, products, changeQuantityHandler, removeItemHandler } =
-    useShoppingCart();
+  const {
+    loading,
+    error,
+    products,
+    changeQuantityHandler,
+    removeItemHandler,
+    userAccessToken,
+  } = useShoppingCart();
 
   return (
     <>
@@ -19,7 +25,10 @@ const ShoppingCart = () => {
                 changeQuantityHandler={changeQuantityHandler}
                 removeItemHandler={removeItemHandler}
               />
-              <CartSubTotalPrice products={products} />
+              <CartSubTotalPrice
+                products={products}
+                userAccessToken={userAccessToken}
+              />
             </>
           ) : (
             <LottieHandler
